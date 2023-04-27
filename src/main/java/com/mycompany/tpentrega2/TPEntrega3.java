@@ -46,7 +46,7 @@ public class TPEntrega3 {
 //Verifica cantidad de campos del archivo resultados.csv, en caso de error, da aviso en pantalla y cierra el programa        
         for (String linea2 : Files.readAllLines(archivo2).subList(1, Files.readAllLines(archivo2).size())) {
             String[] split = linea2.split(";");
-            if (split.length != 6) {
+            if (split.length != 7) {
                 System.out.println("ERROR: La cantidad de campos no es la correcta en al menos una de las líneas del archivo resultados.csv");
                 return;
             }
@@ -72,7 +72,7 @@ public class TPEntrega3 {
                 cantidadRondas = Integer.parseInt(split[0]);
             }
         };
-//Instanciando Rondas
+//Crea lista ronda
         List<Ronda> rondaLista = new ArrayList<>();
         //instanciando rondas
         for (int i = 1; i <= cantidadRondas; i++) {
@@ -83,6 +83,38 @@ public class TPEntrega3 {
         for (Ronda iterar1 : rondaLista) {
             iterar1.cargarPartidos();
         }
+//Leyendo el archivo resultados.csv desde la segunda linea, para obtener la cantidad de fases
+        int cantidadFases = 0;
+        for (String linea2 : Files.readAllLines(archivo2).subList(1, Files.readAllLines(archivo2).size())) {
+            String[] split = linea2.split(";");
+            if (cantidadFases < Integer.parseInt(split[6])) {
+                cantidadFases = Integer.parseInt(split[6]);
+            }
+        }
+//crea Lista Fases
+        List<Fases> faseLista = new ArrayList<>();
+        //instanciando fases, 
+        for (int i = 1; i <= cantidadFases; i++) {
+        Fases fase = new Fases(i);
+        faseLista.add(fase);
+       }
+//Cargo Lista de Rondas a cada Fase       
+   for (Fases iteraFase : faseLista) { 
+       List<Ronda> rondaLista2 = new ArrayList<>(); 
+       for (String linea4 : Files.readAllLines(archivo2).subList(1, Files.readAllLines(archivo2).size())) {
+            String[] split = linea4.split(";");
+           if (Integer.parseInt(split[6])==iteraFase.getNroFase()) {
+            for (Ronda iteraRonda : rondaLista) {
+        if (Integer.parseInt(split[0])==iteraRonda.getNroRonda()) {
+      rondaLista2.add(iteraRonda);
+             }}}
+        iteraFase.setRondas(rondaLista2);
+         }}
+   
+   for (Fases iteraFase : faseLista) {
+       System.out.println(iteraFase.getRondas().size());
+   }
+       
 // Defino variables que representan la url BD, el Usuario BD, password BD;
 //Obtengo los valores anteriores desde el archivo config.ini
 File fileToParse = new File("config.ini");
