@@ -3,6 +3,12 @@ id,participante,codigo,equipo1,gana_equipo1,empate,gana_equipo2,equipo2
 10,Pedro,QATAR22GC04,Polonia,true,-,-,"Arabia Saudita"
 11,Pedro,QATAR22GC06,"Arabia Saudita",-,true,-,Mexico
 12,Pedro,QATAR22GC05,Polonia,-,-,true,Argentina
+13,Juan,QATAR22GC01,Argentina,-,-,true,"Arabia Saudita"
+14,Juan,QATAR22GC02,Polonia,-,true,-,Mexico
+15,Juan,QATAR22GC03,Argentina,true,-,-,Mexico
+16,Juan,QATAR22GC04,Polonia,true,-,-,"Arabia Saudita"
+17,Juan,QATAR22GC05,Polonia,-,-,true,Argentina
+18,Juan,QATAR22GC06,"Arabia Saudita",-,-,true,Mexico
 2,Mariana,QATAR22GC02,Polonia,-,true,-,Mexico
 3,Mariana,QATAR22GC03,Argentina,true,-,-,Mexico
 4,Mariana,QATAR22GC04,Polonia,true,-,-,"Arabia Saudita"
