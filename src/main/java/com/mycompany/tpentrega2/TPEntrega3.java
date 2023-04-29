@@ -98,24 +98,31 @@ public class TPEntrega3 {
             Fases fase = new Fases(i);
             faseLista.add(fase);
         }
-//Cargo Lista de Rondas a cada Fase. Verifico que la ronda no esté cargada previamentepara evitar duplicaciones.    
-        for (Fases iteraFase : faseLista) {
+//Cargo Lista de Rondas a cada Fase. Verifico que la ronda no esté cargada previamente para evitar duplicaciones.    
+        for (Fases iteraFase : faseLista) 
+        {
             List<Ronda> rondaLista2 = new ArrayList<>();
-            for (String linea4 : Files.readAllLines(archivo2).subList(1, Files.readAllLines(archivo2).size())) {
+            for (String linea4 : Files.readAllLines(archivo2).subList(1, Files.readAllLines(archivo2).size())) 
+            {
                 String[] split = linea4.split(";");
-                if (Integer.parseInt(split[6]) == iteraFase.getNroFase()) {
-                    for (Ronda iteraRonda : rondaLista) {
-                        if (Integer.parseInt(split[0]) == iteraRonda.getNroRonda()) {
+                if (Integer.parseInt(split[6]) == iteraFase.getNroFase()) 
+                {
+                    for (Ronda iteraRonda : rondaLista) 
+                    {
+                        if (Integer.parseInt(split[0]) == iteraRonda.getNroRonda()) 
+                        {
                             boolean repetido = false;
-                            for (Ronda itera2Ronda : rondaLista2) {
-                                if (itera2Ronda.getNroRonda() == Integer.parseInt(split[0])) {
+                            for (Ronda itera2Ronda : rondaLista2) 
+                            {
+                                if (itera2Ronda.getNroRonda() == Integer.parseInt(split[0])) 
+                                {
                                     repetido = true;
                                 }
                             }
-                            if (repetido == false) {
+                            if (repetido == false) 
+                            {
                                 rondaLista2.add(iteraRonda);
                             }
-
                         }
                     }
                 }
